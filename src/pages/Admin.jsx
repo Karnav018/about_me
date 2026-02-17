@@ -8,7 +8,8 @@ const Admin = () => {
         title: '',
         tech: '',
         description: '',
-        link: ''
+        link: '',
+        problemSolved: ''
     });
     const [status, setStatus] = useState('');
 
@@ -23,10 +24,11 @@ const Admin = () => {
         try {
             await addDoc(collection(db, "projects"), {
                 ...formData,
+                problemSolved: formData.problemSolved.split('\n').filter(line => line.trim() !== ''), // Convert to Array
                 createdAt: new Date()
             });
             setStatus('Project added successfully!');
-            setFormData({ title: '', tech: '', description: '', link: '' }); // Clear form
+            setFormData({ title: '', tech: '', description: '', link: '', problemSolved: '' }); // Clear form
             setTimeout(() => setStatus(''), 3000); // Clear status after 3s
         } catch (error) {
             console.error("Error adding document: ", error);
@@ -135,6 +137,18 @@ const Admin = () => {
                         name="link"
                         value={formData.link}
                         onChange={handleChange}
+                        style={{ width: '100%', padding: '8px', backgroundColor: 'var(--bg-terminal)', border: '1px solid var(--border-color)', color: 'var(--text-color)', fontFamily: 'var(--font-mono)' }}
+                    />
+                </div>
+
+                <div>
+                    <label style={{ display: 'block', marginBottom: '5px', color: 'var(--secondary-color)' }}>Problems Solved (One per line)</label>
+                    <textarea
+                        name="problemSolved"
+                        value={formData.problemSolved}
+                        onChange={handleChange}
+                        rows="4"
+                        placeholder="- Optimized API latency by 50%&#10;- Integrated real-time WebSocket feed"
                         style={{ width: '100%', padding: '8px', backgroundColor: 'var(--bg-terminal)', border: '1px solid var(--border-color)', color: 'var(--text-color)', fontFamily: 'var(--font-mono)' }}
                     />
                 </div>

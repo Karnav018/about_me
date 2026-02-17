@@ -4,7 +4,7 @@ import { VscPlay } from "react-icons/vsc";
 import { collection, query, orderBy, onSnapshot, limit } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
-const ProjectCell = ({ title, tech, description, link, logToTerminal }) => {
+const ProjectCell = ({ title, tech, description, link, problemSolved, logToTerminal }) => {
     const handleRun = () => {
         logToTerminal(`> python3 run_project.py "${title}"`);
         logToTerminal(`Initializing environment...`);
@@ -54,6 +54,15 @@ const ProjectCell = ({ title, tech, description, link, logToTerminal }) => {
                     """
                 </div>
                 <div style={{ paddingLeft: '20px', marginTop: '10px' }}>
+                    {/* Problems Solved Section */}
+                    {problemSolved && problemSolved.length > 0 && (
+                        <div style={{ marginBottom: '10px', color: 'var(--comment-color)' }}>
+                            # Key Challenges Solved:<br />
+                            {problemSolved.map((prob, i) => (
+                                <span key={i}># - {prob}<br /></span>
+                            ))}
+                        </div>
+                    )}
                     <span style={{ color: 'var(--keyword-color)' }}>print</span>(<span style={{ color: 'var(--string-color)' }}>"See Project Details..."</span>)
                 </div>
             </div>
@@ -124,6 +133,7 @@ const Projects = ({ logToTerminal }) => {
                         tech={project.tech}
                         description={project.description}
                         link={project.link}
+                        problemSolved={project.problemSolved}
                         logToTerminal={logToTerminal}
                     />
                 ))

@@ -27,6 +27,7 @@ import Admin from './pages/Admin';
 console.log("App: Initializing...");
 
 function App() {
+  console.log("App: Rendering...");
   const { toggleTheme, setThemeByName, theme } = useTheme();
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('Home.md');
@@ -481,6 +482,7 @@ function App() {
       </div>
     </div>
   );
+  console.log("App: Rendered");
 }
 
 export default App;

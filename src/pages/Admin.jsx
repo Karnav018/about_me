@@ -45,13 +45,23 @@ const Admin = () => {
                 title: "Facial Emotion Recognition",
                 tech: "Python, TensorFlow, Keras, CNN, OpenCV",
                 description: "Engineered a Convolutional Neural Network (CNN) to classify facial expressions with high accuracy. Trained on 10,000+ images.",
-                link: "https://github.com/Karnav018"
+                link: "https://github.com/Karnav018",
+                problemSolved: [
+                    "Achieved 91.2% accuracy on FER-2013 dataset",
+                    "Optimized image preprocessing pipeline for real-time inference",
+                    "Reduced model size by 40% using quantization"
+                ]
             },
             {
                 title: "Automated Program Repair",
                 tech: "Python, JavaParser, Defects4J",
                 description: "Research pipeline for Automated Program Repair using AST analysis on 835+ Java bugs. Implemented k-hop neighborhood extraction.",
-                link: "https://github.com/Karnav018"
+                link: "https://github.com/Karnav018",
+                problemSolved: [
+                    "Automated bug localization using Abstract Syntax Trees (AST)",
+                    "Extracted context-aware code features for ML training",
+                    "Processed 835+ Java defects from Defects4J benchmark"
+                ]
             }
         ];
 

@@ -46,7 +46,7 @@ const ProjectCell = ({ title, tech, description, link, problemSolved, logToTermi
                     <span style={{ color: 'var(--function-color)' }}>def</span>
                     <span style={{ color: 'var(--secondary-color)' }}>{title.replace(/\s+/g, '_').toLowerCase()}</span>():
                 </div>
-                <div style={{ paddingLeft: '20px', color: 'var(--string-color)' }}>
+                <div style={{ paddingLeft: '20px', color: 'var(--string-color)', whiteSpace: 'pre-wrap' }}>
                     """<br />
                     {description}<br />
                     <br />
@@ -55,7 +55,7 @@ const ProjectCell = ({ title, tech, description, link, problemSolved, logToTermi
                 </div>
                 <div style={{ paddingLeft: '20px', marginTop: '10px' }}>
                     {/* Problems Solved Section */}
-                    {problemSolved && problemSolved.length > 0 && (
+                    {problemSolved && Array.isArray(problemSolved) && problemSolved.length > 0 && (
                         <div style={{ marginBottom: '10px', color: 'var(--comment-color)' }}>
                             # Key Challenges Solved:<br />
                             {problemSolved.map((prob, i) => (

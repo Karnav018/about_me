@@ -315,6 +315,27 @@ function App() {
                   </div>
                 ))}
               </div>
+
+              {/* Resume Download (Mobile Accessible) */}
+              <div style={{ marginTop: 'auto', padding: '10px', borderTop: '1px solid var(--border-color)' }}>
+                <a
+                  href="/resume.pdf"
+                  download="Karnav_Prajapati_Resume.pdf"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    color: 'var(--accent-color)',
+                    textDecoration: 'none',
+                    fontSize: '0.9rem',
+                    cursor: 'pointer',
+                    padding: '5px'
+                  }}
+                >
+                  <VscCloudDownload size={20} />
+                  <span>Download Resume</span>
+                </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

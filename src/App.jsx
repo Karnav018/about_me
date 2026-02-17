@@ -3,7 +3,7 @@ import './index.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Icons
-import { VscFiles, VscSearch, VscSourceControl, VscDebugAlt, VscExtensions, VscAccount, VscSettingsGear, VscPlay, VscMenu, VscClose, VscSplitHorizontal } from "react-icons/vsc";
+import { VscFiles, VscSearch, VscSourceControl, VscDebugAlt, VscExtensions, VscAccount, VscSettingsGear, VscPlay, VscMenu, VscClose, VscSplitHorizontal, VscCloudDownload } from "react-icons/vsc";
 import { FaPython, FaReact, FaJs, FaMarkdown } from "react-icons/fa";
 import { SiJupyter } from "react-icons/si";
 
@@ -235,6 +235,14 @@ function App() {
             <div style={{ marginBottom: '20px', cursor: 'pointer', color: 'var(--comment-color)' }}><VscSourceControl size={24} /></div>
 
             <div style={{ marginTop: 'auto', marginBottom: '10px' }}>
+              <a
+                href="/resume.pdf"
+                download="Karnav_Prajapati_Resume.pdf"
+                style={{ marginBottom: '20px', cursor: 'pointer', color: 'var(--accent-color)', display: 'block', textAlign: 'center' }}
+                title="Download Resume"
+              >
+                <VscCloudDownload size={24} />
+              </a>
               <div style={{ marginBottom: '20px', cursor: 'pointer', color: 'var(--comment-color)' }}><VscAccount size={24} /></div>
               <div
                 style={{ marginBottom: '10px', cursor: 'pointer', color: theme === 'dracula' ? 'var(--comment-color)' : 'var(--accent-color)' }}
